@@ -1,0 +1,22 @@
+hostname PE_r3
+!
+
+no ip http server
+no ip http secure-server
+ip route 10.2.2.2 255.255.255.255 Tunnel0
+!
+
+!
+ip prefix-list TEST seq 5 permit 10.6.6.6/32
+!
+!
+
+!
+alias configure sh do sh 
+alias exec ospf sh run | s ^router ospf
+alias exec bri show ip int bri | exc unass
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous

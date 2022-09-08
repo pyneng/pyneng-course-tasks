@@ -1,0 +1,39 @@
+Current configuration : 4052 bytes
+!
+! Last configuration change at 13:13:40 UTC Tue Mar 1 2016
+version 15.2
+no service timestamps debug uptime
+no service timestamps log uptime
+!
+hostname PE_r2
+!
+no ip http server
+no ip http secure-server
+ip route 10.2.2.2 255.255.255.255 Tunnel0
+!
+ip access-list standard LDP
+ deny   10.0.0.0 0.0.255.255
+ permit 10.0.0.0 0.255.255.255
+!
+!
+ip prefix-list TEST seq 5 permit 10.6.6.6/32
+!
+!
+mpls ldp router-id Loopback0 force
+!
+control-plane
+!         
+!
+alias configure sh do sh 
+alias exec ospf sh run | s ^router ospf
+alias exec bri show ip int bri | exc unass
+alias exec id show int desc
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+line vty 0 4
+ login
+ transport input all
