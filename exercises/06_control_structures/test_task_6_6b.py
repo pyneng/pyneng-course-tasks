@@ -55,6 +55,11 @@ def monkey_input_ip(ip_add):
             return ip_add
         elif inner.total_calls == 2:
             return "10.1.1.1"
+        else:
+            pytest.fail(
+                "Код зациклился. Запрос адреса у пользователя должен "
+                "остановиться после того как был введен правильный адрес."
+            )
 
     return inner
 
