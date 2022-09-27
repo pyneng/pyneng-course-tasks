@@ -26,5 +26,5 @@ def test_task_sw1(capsys, monkeypatch, sep, correct_output):
         "нужный результат, но и вывести его на стандартный поток вывода с помощью print"
     )
     assert (
-        correct_output in out.strip()
+        correct_output == out.strip()
     ), "На стандартный поток вывода выводится неправильный вывод"
