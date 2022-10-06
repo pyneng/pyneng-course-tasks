@@ -36,6 +36,6 @@ $ python task_7_4.py config_trunk_sw3.txt
 Убедиться, что для этих файлов получаются правильные словари.
 
 Подсказка по синтаксису cisco: в этом задании считаем, что интерфейс находится
-в режиме trunk, если у него настроена команда switchport trunk allowed vlans.
+в режиме trunk, если у него настроена команда switchport trunk allowed vlan.
 """
 from pprint import pprint
