@@ -55,7 +55,7 @@ In [18]: pprint(result, width=100, sort_dicts=False)
                         '\n'
                         'R1(config)#',
   'logging': 'logging\n% Incomplete command.\n\nR1(config)#',
-  'i': 'i\n% Ambiguous command:  "i"\nR1(config)#'})
+  'a': 'a\n% Ambiguous command:  "a"\nR1(config)#'})
 
 In [19]: good, bad = result
 
