@@ -44,33 +44,18 @@ In [17]: result = send_config_commands(r1, commands)
 Команда "logging" выполнилась с ошибкой "Incomplete command." на устройстве 192.168.100.1
 Команда "a" выполнилась с ошибкой "Ambiguous command:  "a"" на устройстве 192.168.100.1
 
-In [18]: pprint(result, width=120)
-({'ip http server': 'config term\n'
-                    'Enter configuration commands, one per line.  End with CNTL/Z.\n'
-                    'R1(config)#ip http server\n'
-                    'R1(config)#',
-  'logging buffered 20010': 'config term\n'
-                            'Enter configuration commands, one per line.  End with CNTL/Z.\n'
-                            'R1(config)#logging buffered 20010\n'
-                            'R1(config)#'},
- {'a': 'config term\n'
-       'Enter configuration commands, one per line.  End with CNTL/Z.\n'
-       'R1(config)#a\n'
-       '% Ambiguous command:  "a"\n'
-       'R1(config)#',
-  'logging': 'config term\n'
-             'Enter configuration commands, one per line.  End with CNTL/Z.\n'
-             'R1(config)#logging\n'
-             '% Incomplete command.\n'
-             '\n'
-             'R1(config)#',
-  'logging 0255.255.1': 'config term\n'
+In [18]: pprint(result, width=100, sort_dicts=False)
+({'logging buffered 20010': 'logging buffered 20010\nR1(config)#',
+  'ip http server': 'ip http server\nR1(config)#'},
+ {'logging 0255.255.1': 'configure terminal\n'
                         'Enter configuration commands, one per line.  End with CNTL/Z.\n'
                         'R1(config)#logging 0255.255.1\n'
                         '                   ^\n'
                         "% Invalid input detected at '^' marker.\n"
                         '\n'
-                        'R1(config)#'})
+                        'R1(config)#',
+  'logging': 'logging\n% Incomplete command.\n\nR1(config)#',
+  'i': 'i\n% Ambiguous command:  "i"\nR1(config)#'})
 
 In [19]: good, bad = result
 
