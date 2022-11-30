@@ -2,7 +2,7 @@
 """
 Задание 9.4
 
-Создать функцию generate_access_dict, которая генерирует конфигурацию
+Создать функцию generate_access_config, которая генерирует конфигурацию
 для access-портов.
 
 У функции должно быть два параметра:
@@ -24,7 +24,7 @@ access_cmd_list.  Если предыдущая проверка прошла у
 
 Пример работы функции
 
-In [4]: generate_access_dict(access_dict, cmd_list)
+In [4]: generate_access_config(access_dict, cmd_list)
 Out[4]:
 ['interface FastEthernet0/12',
  'switchport mode access',
