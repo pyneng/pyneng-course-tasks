@@ -10,8 +10,11 @@
   (пробелы в начале строки надо удалить).
 * Если у команды верхнего уровня нет подкоманд, то значение будет пустым списком
 
-У функции должен быть один параметр config_filename, который ожидает
-как аргумент имя конфигурационного файла.
+У функции должны быть такие параметры:
+* config_filename - ожидает как аргумент имя конфигурационного файла
+* ignore_lines - ожидает как аргумент список строк. Если в строке
+  файла находится одно из слов в списке ignore_lines, строку надо
+  игнорировать, то есть не добавлять в словарь.
 
 Проверить работу функции на примере файла config_sw1.txt
 
@@ -19,7 +22,7 @@
 с '!', пустые строки, а также строки в которых содержатся слова из списка ignore.
 
 Пример работы функции:
-In [3]: pprint(convert_config_to_dict("config_r2_short.txt"), sort_dicts=False)
+In [3]: pprint(convert_config_to_dict("config_r2_short.txt", ignore), sort_dicts=False)
 {'version 15.2': [],
  'no service timestamps debug uptime': [],
  'no service timestamps log uptime': [],
@@ -38,7 +41,7 @@ In [3]: pprint(convert_config_to_dict("config_r2_short.txt"), sort_dicts=False)
  'line aux 0': [],
  'line vty 0 4': ['login', 'transport input all']}
 
-In [4]: pprint(convert_config_to_dict("config_sw1.txt"), sort_dicts=False)
+In [4]: pprint(convert_config_to_dict("config_sw1.txt", ignore), sort_dicts=False)
 {'version 15.0': [],
  'service timestamps debug datetime msec': [],
  'service timestamps log datetime msec': [],

@@ -19,8 +19,8 @@ def test_function_params():
     """
     check_function_params(
         function=task_9_7.convert_config_to_dict,
-        param_count=1,
-        param_names=["config_filename"],
+        param_count=2,
+        param_names=["config_filename", "ignore_lines"],
     )
 
 
@@ -72,7 +72,8 @@ def test_function_return_value():
         "end": [],
     }
 
-    return_value = task_9_7.convert_config_to_dict("config_sw1.txt")
+    ignore = ["duplex", "alias", "configuration"]
+    return_value = task_9_7.convert_config_to_dict("config_sw1.txt", ignore_lines=ignore)
     assert return_value != None, "Функция ничего не возвращает"
     assert (
         type(return_value) == dict
