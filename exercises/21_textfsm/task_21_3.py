@@ -18,9 +18,10 @@
 * ключи - имена переменных в шаблоне TextFSM
 * значения - части вывода, которые соответствуют переменным
 
-Проверить работу функции на примере вывода команды sh ip int br.
+Проверить работу функции на примере вывода команды sh ip int br и sh version.
 
-Пример вызова функции
+Пример вызова функции для sh ip int br
+
 In [8]: attributes = {"Command": "show ip int br", "Vendor": "cisco_ios"}
    ...: with open("output/sh_ip_int_br.txt") as f:
    ...:     pprint(parse_command_dynamic(f.read(), attributes), width=120)
@@ -31,5 +32,14 @@ In [8]: attributes = {"Command": "show ip int br", "Vendor": "cisco_ios"}
  {'address': 'unassigned', 'intf': 'FastEthernet0/3', 'protocol': 'up', 'status': 'up'},
  {'address': '10.1.1.1', 'intf': 'Loopback0', 'protocol': 'up', 'status': 'up'},
  {'address': '100.0.0.1', 'intf': 'Loopback100', 'protocol': 'up', 'status': 'up'}]
+
+Пример вызова функции для sh version
+
+In [9]: attributes = {'Command': 'sh version', 'Vendor': 'cisco_ios'}
+   ...: with open("output/sh_version.txt") as f:
+   ...:     output = f.read()
+   ...: print(parse_command_dynamic(output, attributes))
+
+[{'version': '15.3(2)S1', 'hostname': 'R1_LONDON'}]
 
 """
