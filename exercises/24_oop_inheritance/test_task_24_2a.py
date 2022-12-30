@@ -42,4 +42,4 @@ def test_errors(first_router_from_devices_yaml, command, error):
     ssh.disconnect()
     assert error in str(
         excinfo
-    ), "Метод send_config_commands должен генерировать исключение, когда команда выполнена с ошибкой"
+    ), "Метод send_command должен генерировать исключение, когда команда выполнена с ошибкой"
