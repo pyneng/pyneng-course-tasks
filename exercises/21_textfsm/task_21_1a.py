@@ -16,7 +16,7 @@
 Проверить работу функции на выводе команды output/sh_ip_int_br.txt
 и шаблоне templates/sh_ip_int_br.template.
 
-Пример работы функции
+Пример работы функции (ключи в словарях отсортированы из-за pprint)
 In [2]: with open("output/sh_ip_int_br.txt") as f:
    ...:     pprint(parse_output_to_dict("templates/sh_ip_int_br.template", f.read()), width=100)
    ...:
