@@ -51,7 +51,7 @@ def test_function_return_value_correct_mac(mac, correct_converted_mac):
         "1a.2c2d.3e3f",
         "aaaabbttcccc",
         "1111:2222:333333",
-        "1111:OO22:3333",
+        "1111:KK22:3333",
     ],
 )
 def test_function_return_value_wrong_mac(wrong_mac):
