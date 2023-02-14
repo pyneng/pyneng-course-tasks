@@ -29,6 +29,7 @@ def test_function_created():
         ("1111.2222.3333", "11:11:22:22:33:33"),
         ("1111-2222-3333", "11:11:22:22:33:33"),
     ],
+    ids=str,
 )
 def test_function_return_value_correct_mac(mac, correct_converted_mac):
     """
@@ -60,4 +61,3 @@ def test_function_return_value_wrong_mac(wrong_mac):
     """
     with pytest.raises(ValueError) as excinfo:
         return_value = task_11_1.convert_mac(wrong_mac)
-
