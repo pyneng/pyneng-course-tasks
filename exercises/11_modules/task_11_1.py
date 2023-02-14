@@ -12,10 +12,7 @@ MAC-адресом в формате 1a:1b:2c:2d:3e:3f.
 * 1a1b2c2d3e3f
 * 1a1b:2c2d:3e3f
 * 1a1b.2c2d.3e3f
-* 1a-1b-2c-2d-3e-3f
-* 1a.1b.2c.2d.3e.3f
 * 1a1b-2c2d-3e3f
-* 1a:1b:2c:2d:3e:3f (оставить без изменений)
 
 Функция также должна проверять, что строка, которая была передана функции,
 содержит правильный MAC-адрес. MAC-адрес считается правильным, если:
@@ -37,7 +34,7 @@ MAC address
 In [2]: convert_mac("1a1b.2c2d.3e3f")
 Out[2]: '1a:1b:2c:2d:3e:3f'
 
-In [3]: convert_mac("1111.2222.3333")
+In [3]: convert_mac("1111:2222:3333")
 Out[3]: '11:11:22:22:33:33'
 
 In [4]: convert_mac("111122223333")
@@ -64,3 +61,11 @@ Input In [7], in <cell line: 1>()
 ValueError: '1111-2222-33WW' does not appear to be a MAC address
 
 """
+
+correct_mac_example = [
+    "111122223333",
+    "1a1b.2c2d.3e3f",
+    "1111-2222-3333",
+]
+wrong_mac_example = ["1a1b.rrrr.3e3f", "1111tttt3333", "1111-2222-33"]
+

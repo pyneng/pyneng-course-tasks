@@ -23,14 +23,11 @@ def test_function_created():
 @pytest.mark.parametrize(
     "mac,correct_converted_mac",
     [
-        ("1a1b.2c2d.3e3f", "1a:1b:2c:2d:3e:3f"),
         ("aaaabbbbcccc", "aa:aa:bb:bb:cc:cc"),
         ("1111:2222:3333", "11:11:22:22:33:33"),
-        ("1a-1b-2c-2d-3e-3f", "1a:1b:2c:2d:3e:3f"),
-        ("aa.aa.bb.bb.cc.cc", "aa:aa:bb:bb:cc:cc"),
+        ("1a1b.2c2d.3e3f", "1a:1b:2c:2d:3e:3f"),
         ("1111.2222.3333", "11:11:22:22:33:33"),
         ("1111-2222-3333", "11:11:22:22:33:33"),
-        ("aa:aa:bb:bb:cc:cc", "aa:aa:bb:bb:cc:cc"),
     ],
 )
 def test_function_return_value_correct_mac(mac, correct_converted_mac):
@@ -52,9 +49,9 @@ def test_function_return_value_correct_mac(mac, correct_converted_mac):
     "wrong_mac",
     [
         "1a.2c2d.3e3f",
-        "aaaabbRRcccc",
+        "aaaabbttcccc",
         "1111:2222:333333",
-        "1a-1b-2c-2d-3e-3f-aa",
+        "1111:OO22:3333",
     ],
 )
 def test_function_return_value_wrong_mac(wrong_mac):

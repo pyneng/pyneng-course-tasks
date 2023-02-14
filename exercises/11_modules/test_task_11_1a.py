@@ -28,10 +28,11 @@ def test_function_created():
             ["1a:1b:2c:2d:3e:3f", "aa:aa:bb:bb:cc:cc"],
         ),
         (
-            ["1111:2222:3333", "1a-1b-2c-2d-3e-3f"],
+            ["1111:2222:3333", "1a1b-2c2d-3e3f"],
             ["11:11:22:22:33:33", "1a:1b:2c:2d:3e:3f"],
         ),
     ],
+    ids=str,
 )
 def test_function_return_value_correct_mac(mac_list, correct_converted_mac_list):
     """
@@ -56,9 +57,10 @@ def test_function_return_value_correct_mac(mac_list, correct_converted_mac_list)
     [
         ["1a.2c2d.3e3f", "1a1b.2c2d.3e3f"],
         ["1111:2222:3333", "aaaabbRRcccc"],
-        ["1111:2222:333333", "11:11:22:22:33:33"],
+        ["1111:2222:333333", "1111:2222:3333"],
         ["1a-1b-2c-2d-3e-3f-aa"],
     ],
+    ids=str,
 )
 def test_function_return_value_wrong_mac_strict_true(wrong_mac_list):
     """
@@ -76,10 +78,11 @@ def test_function_return_value_wrong_mac_strict_true(wrong_mac_list):
             ["aa:aa:bb:bb:cc:cc"],
         ),
         (
-            ["1111:2222:33", "1a-1b-2c-2d-3e-3f"],
+            ["1111:2222:33", "1a1b-2c2d-3e3f"],
             ["1a:1b:2c:2d:3e:3f"],
         ),
     ],
+    ids=str,
 )
 def test_function_return_value_wrong_mac_strict_false(
     mac_list, correct_converted_mac_list
