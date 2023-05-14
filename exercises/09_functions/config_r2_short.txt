@@ -22,9 +22,9 @@ ip prefix-list TEST seq 5 permit 10.6.6.6/32
 mpls ldp router-id Loopback0 force
 !
 control-plane
-!         
 !
-alias configure sh do sh 
+!
+alias configure sh do sh
 alias exec ospf sh run | s ^router ospf
 alias exec bri show ip int bri | exc unass
 alias exec id show int desc

@@ -13,7 +13,7 @@ hostname sw1
 !
 !
 !
-! 
+!
 !
 !
 !
@@ -35,13 +35,13 @@ interface FastEthernet0/2
  switchport mode access
  switchport access vlan 20
  duplex auto
-!         
+!
 interface FastEthernet0/3
  switchport trunk encapsulation dot1q
  switchport trunk allowed vlan 100,300,400,500,600
  duplex auto
  switchport mode trunk
-!         
+!
 interface FastEthernet1/0
  switchport mode access
  switchport access vlan 20
@@ -74,7 +74,7 @@ interface Vlan100
  ip address 10.0.100.1 255.255.255.0
 !
 !
-alias configure sh do sh 
+alias configure sh do sh
 alias exec ospf sh run | s ^router ospf
 alias exec bri show ip int bri | exc unass
 alias exec id show int desc
